@@ -96,8 +96,7 @@ let cache = {
 	data: null as any | null,
 	lastFetched: 0
 };
-const cacheDuration = 60 * 60 * 1000; // 1 hour in milliseconds
-
+const cacheDuration = 10 * 60 * 1000; // 10 minutes
 export async function load() {
 	const now = Date.now();
 
