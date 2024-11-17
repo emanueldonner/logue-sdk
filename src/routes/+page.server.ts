@@ -92,7 +92,21 @@ const extractTitleFromFrontMatter = (md: string): string => {
 	return 'Untitled';
 };
 
+let cache = {
+	data: null as any | null,
+	lastFetched: 0
+};
+const cacheDuration = 60 * 60 * 1000; // 1 hour in milliseconds
+
 export async function load() {
+	const now = Date.now();
+
+	// Check if cached data is still valid
+	if (cache.data && now - cache.lastFetched < cacheDuration) {
+		return cache.data;
+	}
+
+	// Fetch new data
 	const fetchedFiles = new Set<string>();
 	const indexMd = await fetchMarkdown('01_unit_index.md');
 	fetchedFiles.add('01_unit_index.md');
@@ -103,14 +117,13 @@ export async function load() {
 	if (allMdFiles) {
 		for (const mdFile of allMdFiles) {
 			const fileContent = await fetchMarkdown(mdFile);
-			const title = extractTitleFromFrontMatter(fileContent); // Use the new function to extract the title
-			console.log('title', title);
+			const title = extractTitleFromFrontMatter(fileContent);
 			const tables = extractTables(fileContent);
 			for (const table of tables) {
 				const jsonData = parseTableToJSON(table);
 				tableData.push({
 					file: mdFile,
-					title, // Include the extracted title
+					title,
 					rows: jsonData
 				});
 			}
@@ -119,7 +132,9 @@ export async function load() {
 
 	tableData = tableData.sort((a, b) => a.file.localeCompare(b.file));
 
-	return {
-		tableData
-	};
+	// Update cache
+	cache.data = { tableData };
+	cache.lastFetched = now;
+
+	return cache.data;
 }
