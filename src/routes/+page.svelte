@@ -123,16 +123,15 @@
 </script>
 
 <div class="container">
-	<h1><em>logue SDK</em></h1>
+	<h1><em>logue-SDK-filter</em></h1>
 	<p>A filter- and searchable index of Korg's logue SDK.</p>
 	<div class="disclaimer">
 		<p>
-			Disclaimer: All the data in this index is sourced from the <a
-				href="https://github.com/korginc/logue-sdk">korginc/logue-sdk</a
-			>
+			<strong>Disclaimer</strong>: All the data in this index is sourced from the
+			<a href="https://github.com/korginc/logue-sdk">korginc/logue-sdk</a>
 			repository.<br />
 			It can only be as accurate and up to date as the repository is.<br />
-			<em>Every time you refresh the page, the data will be updated.</em>
+			<em>Data cached for 10 minutes.</em>
 		</p>
 	</div>
 	<!-- filter by platform -->
