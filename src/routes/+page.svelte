@@ -231,7 +231,25 @@
 	</div>
 	<div class="footer">
 		<!-- contact, copyright, etc. -->
-		<p>Copyright © 2024 by <a href="https://github.com/emanueldonner">Emanuel Donner</a></p>
+		<p>Copyright © 2024</p>
+		<div class="project-description">
+			<p>
+				I got a bit frustrated searching the logue SDK without the ability to filter by platform, so
+				I made this.
+				<br />
+				The original platform data is pretty inconsistent (e.g. "nts-1_mkii", "nts-1mkii", etc), so I
+				had to do some manual clean up and standardization.
+				<br />
+				I'm not affiliated with Korg in any way.
+				<br />
+				Maybe someone else will find this useful.
+				<br />
+				Feel free to contribute or open an issue: https://github.com/emanueldonner/logue-sdk
+			</p>
+		</div>
+		<p>
+			This <a href="https://github.com/emanueldonner/logue-sdk">GitHub Repo</a>
+		</p>
 		<p>Data source: <a href="https://github.com/korginc/logue-sdk">korginc/logue-sdk</a></p>
 	</div>
 </div>
@@ -394,6 +412,10 @@
 		& p {
 			margin: 0.2rem;
 		}
+	}
+	.project-description {
+		margin: 1rem 0;
+		font-size: 0.8rem;
 	}
 	@media (max-width: 768px) {
 		.action-container {
