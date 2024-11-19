@@ -2,7 +2,6 @@
 	import { onMount } from 'svelte';
 
 	export let data: any;
-
 	let searchTerm: string = '';
 	let selectedTitle: string = 'all';
 	let selectedPlatform: string = 'all';

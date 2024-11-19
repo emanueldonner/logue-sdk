@@ -65,9 +65,8 @@ const parseTableToJSON = (table: string): any[] => {
 		.split('|')
 		.map((header) => header.trim())
 		.filter((header) => header);
-
 	return lines
-		.slice(2) // Skip the header and separator lines
+		.slice(1) // Skip the header lines
 		.map((line) => {
 			const values = line
 				.split('|')
@@ -134,6 +133,5 @@ export async function load() {
 	// Update cache
 	cache.data = { tableData };
 	cache.lastFetched = now;
-
 	return cache.data;
 }
